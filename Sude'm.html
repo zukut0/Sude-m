@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevimli Soru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffe4e1;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+        }
+        .container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #00000000;
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+        .buttons {
+            position: relative;
+            width: 200px;
+            height: 100px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+            position: absolute;
+        }
+        #yesBtn {
+            background-color: #ff69b4;
+            color: white;
+            position: static;
+        }
+        #yesBtn:hover {
+            background-color: #ff1493;
+        }
+        #noBtn {
+            background-color: #87cefa;
+            color: white;
+            left: 100px;
+            top: 100px;
+        }
+        #resultContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Beni seviyor musun? 💖</h2>
+        <div class="buttons">
+            <button id="yesBtn">Evet</button>
+            <button id="noBtn">Hayır</button>
+        </div>
+        <div id="resultContainer">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHBoMzQ0Z3pldm01OG5heGZkcW9pZmNrNDlwaTU5b3dkMjVsNmwwZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1hqb8LwPS2xCNCpWH8/giphy.gif" alt="Love Gif">
+            <p><strong>Biliyordum! 😍</strong></p>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const resultContainer = document.getElementById("resultContainer");
+
+        const containerWidth = 500;
+        const containerHeight = 500;
+
+        noBtn.addEventListener("mouseover", () => {
+            const currentLeft = parseInt(noBtn.style.left) || 100;
+            const currentTop = parseInt(noBtn.style.top) || 100;
+
+            const minX = Math.max(0, currentLeft - 100);
+            const maxX = Math.min(containerWidth - 50, currentLeft + 100);
+            const minY = Math.max(0, currentTop - 100);
+            const maxY = Math.min(containerHeight - 50, currentTop + 100);
+
+            const newX = Math.floor(Math.random() * (maxX - minX)) + minX;
+            const newY = Math.floor(Math.random() * (maxY - minY)) + minY;
+
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+        });
+
+        yesBtn.addEventListener("click", () => {
+            setTimeout(() => {
+                resultContainer.style.display = "block";
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>
+💖 Malak 💖
